@@ -1,0 +1,70 @@
+.active {
+    background-color: darkslategray;
+}
+
+#first,
+#second,
+#third {
+    height: 400px;
+    width: 100%;
+}
+
+#first {
+    background-image: url('img-1.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+#second {
+    background-image: url('img-2.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+#third {
+    background-image: url('img-3.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+#first-div {
+    background-image: url('img-1.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#second-div {
+    background-image: url('img-2.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#third-div {
+    background-image: url('img-3.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

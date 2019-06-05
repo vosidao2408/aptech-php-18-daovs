@@ -1,0 +1,25 @@
+.First-Container {
+    &__Row {
+        &__First-Div {
+            &--height-100-px {
+                height: 100px;
+                background-color: aqua;
+            }
+
+            &--change-color:hover {
+                color: green;
+            }
+        }
+    }
+}
+
+.Second-Container {
+    &__Row {
+        &__Second-Div {
+            &--height-200-px {
+                height: 200px;
+                background-color: brown;
+            }
+        }
+    }
+}

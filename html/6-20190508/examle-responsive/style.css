@@ -1,0 +1,113 @@
+#first-div,
+#second-div,
+#third-div,
+#fourth-div {
+    height: 100px;
+    width: 100%;
+}
+
+#first-div {
+    background-color: blue;
+}
+
+#second-div {
+    background-color: brown
+}
+
+#third-div {
+    background-color: chartreuse
+}
+
+#fourth-div {
+    background-color: gray;
+}
+
+#parent-one {
+    display: flex;
+}
+
+#parent-two {
+    display: flex;
+}
+
+#parent {
+    display: flex;
+}
+
+@media only screen and (min-width:1200px) {
+
+    #parent-one,
+    #parent-two {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    #parent-one {
+        width: 66%;
+    }
+
+    #parent-two {
+        width: 33%;
+    }
+
+
+    #fourth-div {
+        display: none;
+    }
+
+    #first-div,
+    #second-div,
+    #third-div {
+        width: 100%;
+    }
+}
+
+
+
+@media only screen and (max-width: 992px) {
+
+    #parent {
+        display: block;
+    }
+
+    #parent-one,
+    #parent-two {
+        width: 100%;
+    }
+
+    #fourth-div {
+        display: block;
+    }
+
+    #first-div,
+    #second-div,
+    #third-div,
+    #fourth-div {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #parent-one {
+        display: block;
+    }
+
+    #parent-two {
+        display: block;
+    }
+
+    #first-div,
+    #second-div,
+    #third-div,
+    #fourth-div {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:576px) {
+    #fourth-div {
+        display: none;
+    }
+}

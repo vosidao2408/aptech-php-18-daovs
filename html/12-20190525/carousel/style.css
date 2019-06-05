@@ -1,0 +1,22 @@
+div {
+    height: 200px;
+    width: 100%;
+}
+
+#first {
+    background-image: url('img-1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#second {
+    background-image: url('img-2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#third {
+    background-image: url('img-3.jpg');
+    background-size: cover;
+    background-position: center;
+}

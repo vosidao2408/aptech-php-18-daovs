@@ -1,0 +1,48 @@
+body {
+  background-color: #212223;
+  height: 100vh;
+}
+
+.my-text-color {
+  color: #f9fafc;
+  font-family: sans-serif;
+}
+
+
+.container:nth-child(1) {
+  height: 25%;
+  padding-top: 20px;
+}
+
+.container:nth-child(2) {
+  height: 65%;
+}
+
+.container:nth-child(3) {
+  height: 10%;
+}
+
+.text-row {
+  padding: 7px;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.btn-secondary {
+  color: #333;
+  text-shadow: none;
+  background-color: #fff;
+  border: 0.05rem solid #fff;
+}
+
+.my-color {
+  color: #59606e;
+}

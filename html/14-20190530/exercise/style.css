@@ -1,0 +1,21 @@
+#first,
+#second {
+    height: 400px;
+    width: 100%;
+}
+
+#first {
+    background-image: url('img-1.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+#second {
+    background-image: url('img-2.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.img {
+    filter: brightness(50%);
+}

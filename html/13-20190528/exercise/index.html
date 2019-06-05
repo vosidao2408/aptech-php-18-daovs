@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <header class="">
+        <div class="m-2 d-flex justify-content-between">
+            <div class="d-flex">
+                <img src="https://cdn.worldvectorlogo.com/logos/bootstrap-4.svg" alt=""
+                    style="height: 70px;width:70px;">
+                <h3 class="d-none d-md-block m-3">Bootstrap 4</h3>
+            </div>
+            <div class="mt-4 d-none d-md-block ">
+                <ul class="list-unstyled d-flex">
+                    <li class="px-3 active ">
+                        <a class=" text-white active" href="#">Home</a>
+                    </li>
+                    <li class="px-3">
+                        <a class=" text-dark" href="#">About Us</a>
+                    </li>
+                    <li class="px-3">
+                        <a class=" text-dark" href="#">Help</a>
+                    </li>
+                    <li class="pl-3">
+                        <a class=" text-dark" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar navbar-light bg-lignt d-md-none">
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="#collapsingNavbar2">
+                    <span class="navbar-toggler-icon my-toggler"></span>
+                </button>
+            </div>
+        </div>
+        <div class="navbar-collapse collapse m-3 d-md-none" id="collapsingNavbar2">
+            <ul class="navbar-nav mx-auto">
+                <li class=" px-3 nav-item active">
+                    <a class="nav-link text-white" href="#">Home</a>
+                </li>
+                <li class="px-3 nav-item">
+                    <a class="nav-link text-dark" href="#">About Us</a>
+                </li>
+                <li class="px-3 nav-item">
+                    <a class="nav-link text-dark" href="#">Help</a>
+                </li>
+                <li class="px-3 nav-item">
+                    <a class="nav-link text-dark" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class=" d-none d-md-block my-4 shadow">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" id="first">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <p>
+                                <button class="btn btn-success">SIGN UP</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" id="second">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>
+                                <button class="btn btn-success">SIGN UP</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" id="third">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <p>
+                                <button class="btn btn-success">SIGN UP</button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </header>
+    <main>
+        <div class="container my-4">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="text-center">
+                        <div class="rounded-circle my-3" id="first-div"></div>
+                        <h2>Heading</h2>
+                        <p>Use border utilities to quickly style the border and border-radius of an element. Great for
+                            images, buttons, or any other element.
+                            Components and options for laying out your Bootstrap project, including wrapping containers,
+                            a powerful grid system, a flexible media object, and responsive utility classes.</p>
+                        <button class="btn btn-secondary ">View details &#187</button>
+                    </div>
+
+                </div>
+                <div class="d-none col-md-4 d-md-block">
+                    <div class="text-center">
+                        <div class="rounded-circle my-3" id="second-div"></div>
+                        <h2>Heading</h2>
+                        <p>Use border utilities to quickly style the border and border-radius of an element. Great for
+                            images, buttons, or any other element.
+                            Components and options for laying out your Bootstrap project, including wrapping containers,
+                            a powerful grid system, a flexible media object, and responsive utility classes.</p>
+                        <button class="btn btn-secondary ">View details &#187</button>
+                    </div>
+                </div>
+                <div class="d-none col-md-4 d-md-block">
+                    <div class="text-center align-items-center ">
+                        <div class="rounded-circle my-3" id="third-div">
+                        </div>
+                        <h2>Heading</h2>
+                        <p>Use border utilities to quickly style the border and border-radius of an element. Great for
+                            images, buttons, or any other element.
+                            Components and options for laying out your Bootstrap project, including wrapping containers,
+                            a powerful grid system, a flexible media object, and responsive utility classes.</p>
+                        <button class="btn btn-secondary ">View details &#187</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row  justify-content-center align-items-center">
+                <div class="col-12 col-md-7">
+                    <h2 class="mt-3 pb-3">
+                        First featurette heading.
+                        <span class="text-muted">It’ll blow your mind.</span>
+                    </h2>
+                    <p class="lead">
+                        Donec ullamcorper nulla non metus auctor fringilla. Vestibulum
+                        id ligula porta felis euismod semper. Praesent commodo cursus
+                        magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
+                        ac cursus commodo.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <img class="w-100 h-100" src="img-1.jpeg" alt="" />
+                </div>
+            </div>
+            <hr />
+            <div class="row  justify-content-center align-items-center">
+                <div class="col-12 col-md-7 order-md-2">
+                    <h2 class="mt-3 pb-3">
+                        First featurette heading.
+                        <span class="text-muted">It’ll blow your mind.</span>
+                    </h2>
+                    <p class="lead">
+                        Donec ullamcorper nulla non metus auctor fringilla. Vestibulum
+                        id ligula porta felis euismod semper. Praesent commodo cursus
+                        magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
+                        ac cursus commodo.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5 order-md-1">
+                    <img class="w-100 h-100" src="img-2.jpeg" alt="" />
+                </div>
+            </div>
+            <hr />
+            <div class="row  justify-content-center align-items-center">
+                <div class="col-12 col-md-7">
+                    <h2 class="mt-3 pb-3">
+                        First featurette heading.
+                        <span class="text-muted">It’ll blow your mind.</span>
+                    </h2>
+                    <p class="lead">
+                        Donec ullamcorper nulla non metus auctor fringilla. Vestibulum
+                        id ligula porta felis euismod semper. Praesent commodo cursus
+                        magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus
+                        ac cursus commodo.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <img class="w-100 h-100" src="img-3.jpeg" alt="" />
+                </div>
+            </div>
+            <hr>
+        </div>
+    </main>
+    <footer>
+        <div class="container my-2">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <p class="text-muted">&copy 2017-2019 Company,Inc</p>
+                            <ul class="d-flex px-2 mx-1 list-unstyled">
+                                <li><a class="px-2" href="">Privacy</a></li>
+                                <li><a class="px-2" href="">Term</a></li>
+                            </ul>
+                        </div>
+                        <a href="">Back to top</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

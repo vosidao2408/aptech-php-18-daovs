@@ -1,0 +1,62 @@
+#image-bg {
+    background-image: url('img/bg-masthead.jpg');
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.Position {
+    padding-top: 100px;
+}
+
+#first {
+    background-image: url('img/bg-showcase-1.jpg');
+    height: 480px;
+    background-position: center;
+    background-size: cover;
+}
+
+#second {
+    background-image: url('img/bg-showcase-2.jpg');
+    height: 480px;
+    background-position: center;
+    background-size: cover;
+}
+
+#third {
+    background-image: url('img/bg-showcase-3.jpg');
+    height: 480px;
+    background-position: center;
+    background-size: cover;
+}
+
+#first-div {
+    background-image: url('img/testimonials-1.jpg');
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+}
+
+#second-div {
+    background-image: url('img/testimonials-2.jpg');
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+}
+
+#third-div {
+    background-image: url('img/testimonials-3.jpg');
+    height: 200px;
+    width: 200px;
+    background-position: center;
+    background-size: cover;
+}
+
+#image-bgf {
+    background-image: url('img/bg-masthead.jpg');
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+}
