@@ -20,9 +20,9 @@
     <?php include 'connectdb.php'; ?>
     <?php  echo "<br>"?>
     <?php
-        $arr = ['ID','NAME','EMAIL','PASSWORD'];
+        $arr = ['ID','NAME','EMAIL','PASSWORD','Action'];
     ?>
-    <table class="table table-dark table-striped table-hover table-bordered">
+    <table class="table table-dark table-striped table-hover table-bordered text-center">
         <thead>
         <tr>
         <?php
@@ -43,6 +43,12 @@
                      echo "<td>".$row['name']."</td>";
                      echo "<td>".$row['email']."</td>";
                      echo "<td>".$row['password']."</td>";
+                     echo "<td>";
+                      ?>
+                      <a href="updateform.php" class="btn btn-success">Update</a>
+                      <a href="delete.php" class="btn btn-primary">Delete</a>
+                      <?php
+                     echo "</td>";
                     echo "</tr>";
                     
                  }
@@ -52,5 +58,8 @@
             ?>
         </tbody>
     </table>
+    <form method="get" action="form.php">
+    <button class="btn btn-primary" type="submit">Add User</button>
+</form>
   </body>
 </html>
