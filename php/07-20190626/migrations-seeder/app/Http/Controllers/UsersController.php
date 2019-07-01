@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class UsersController extends Controller
 {
-    function hienthiFormNguoiDung(){
+    function hienthiFormNguoiDung(Request $request){
         return view('form-nguoi-dung');
+         $data = $request->input('name','email','password');
+        return dd($data); 
     }
     function docTatCaNguoiDung(){
         $users = DB::table('users')->get();
