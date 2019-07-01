@@ -7,15 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    function createUser(){
-        return view('create');
-    }
     function index(){
         $users = DB::table('users')->get();
         return view('index',['users'=>$users]);
     }
-    function show($idUser){
-        $user = DB::table('users')->where('id',$idUser)->get();
+    function show($id){
+        $user = DB::table('users')->where('id',$id)->get();
         return view('show',['user'=>$user[0]]);
     }
     function destroy($id)
@@ -37,7 +34,6 @@ class UserController extends Controller
     {
         $name = $_POST['name'];
         $email = $_POST['email'];
-        // $_GET $_POST
         DB::table('users')
             ->where('id', $id)
             ->update([
@@ -48,5 +44,21 @@ class UserController extends Controller
         return view('show', [
             'user' => $user[0]
         ]);
+    }
+    
+    function create(){
+        return view('create');
+    }
+    function store(){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        DB::table('users')->insert([
+            'name' => $name,
+            'email' => $email,
+            'password'=>$password
+        ]);
+        $users = DB::table('users')->get();
+        return view('index',['users'=>$users]);
     }
 }

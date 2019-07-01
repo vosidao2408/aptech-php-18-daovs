@@ -15,9 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/create-users','UserController@createUser');
 Route::get('/users','UserController@index');
+Route::get('/users/create','UserController@create');
 Route::get('/users/{id}','UserController@show');
 Route::delete('/users/{id}', 'UserController@destroy');
 Route::get('/users/{id}/edit', 'UserController@edit');
 Route::put('/users/{id}', 'UserController@update');
+Route::post('/users','UserController@store');

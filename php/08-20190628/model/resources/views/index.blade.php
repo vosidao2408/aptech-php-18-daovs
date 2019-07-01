@@ -56,5 +56,8 @@ for ($i = 0; $i < count($arr); $i++) {
 
         </tbody>
         </table>
+        <form action="{{asset('/users/create')}}" method="GET">
+          <button type="submit" class="btn btn-success">Add User</button>
+        </form>
   </body>
 </html>
