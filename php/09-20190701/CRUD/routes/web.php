@@ -14,11 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/users','UserController@index')->name('index');
-Route::get('/users/create','UserController@create');
-Route::get('/users/{id}','UserController@show')->name('show');
-Route::delete('/users/{id}', 'UserController@destroy');
-Route::get('/users/{id}/edit', 'UserController@edit');
-Route::put('/users/{id}', 'UserController@update');
-Route::post('/users','UserController@store');
+Route::resource('/users','UserController');

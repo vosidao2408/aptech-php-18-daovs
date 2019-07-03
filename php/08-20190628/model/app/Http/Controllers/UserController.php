@@ -18,10 +18,11 @@ class UserController extends Controller
     function destroy($id)
     {
         $user = DB::table('users')->where('id', $id)->delete();
-        $users = DB::table('users')->get();
-        return view('index', [
-            'users' => $users
-        ]);
+        // $users = DB::table('users')->get();
+        // return view('index', [
+        //     'users' => $users
+        // ]);
+        return redirect()->route('index');
     }
     function edit($id)
     {
@@ -40,10 +41,11 @@ class UserController extends Controller
                 'name' => $name,
                 'email' => $email
             ]);
-        $user = DB::table('users')->where('id', $id)->get();
-        return view('show', [
-            'user' => $user[0]
-        ]);
+        // $user = DB::table('users')->where('id', $id)->get();
+        // return view('show', [
+        //     'user' => $user[0]
+        // ]);
+        return redirect()->route('show',$id);
     }
     
     function create(){
@@ -58,7 +60,8 @@ class UserController extends Controller
             'email' => $email,
             'password'=>$password
         ]);
-        $users = DB::table('users')->get();
-        return view('index',['users'=>$users]);
+        // $users = DB::table('users')->get();
+        // return view('index',['users'=>$users]);
+        return redirect()->route('index');
     }
 }
