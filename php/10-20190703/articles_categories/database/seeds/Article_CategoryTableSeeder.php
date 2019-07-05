@@ -1,5 +1,6 @@
 <?php
-
+use App\Article;
+use App\Category;
 use Illuminate\Database\Seeder;
 
 class Article_CategoryTableSeeder extends Seeder
@@ -11,12 +12,18 @@ class Article_CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
-        for($i=0;$i<10;$i++){       
-        DB::table('article_category')->insert([
-            'article_id'=>$faker->numberBetween($min = 1, $max = 5),
-            'category_id'=>$faker->numberBetween($min = 1, $max = 5)
-        ]);
+        $categories = Category::pluck('id')->toArray();
+        $articles = Article::pluck('id')->toArray();
+        foreach (range(1, 50) as $index) {
+            $categoryIdRand = $categories[array_rand($categories)];
+            $articleIdRand = $articles[array_rand($articles)];
+            $checkExists = DB::table('article_category')->where('category_id', $categoryIdRand)->where('article_id', $articleIdRand)->exists();
+            if (!$checkExists) {
+                DB::table('article_category')->insert([
+                    'category_id' => $categoryIdRand,
+                    'article_id' => $articleIdRand
+                ]);
+            }
+        }
     }
-}
 }

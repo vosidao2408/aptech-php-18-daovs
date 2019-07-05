@@ -15,12 +15,10 @@ class CreateArticleCategoryTable extends Migration
     {
         Schema::create('article_category', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('article_id')->unsigned()->nullable();
-            $table->integer('category_id')->unsigned()->nullable();
-            $table->foreign('article_id')->references('id')->on('articles');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedInteger('article_id')->reference('id')->on('articles');
+            $table->unsignedInteger('category_id')->reference('id')->on('categories');
+            $table->unique(['article_id', 'category_id']);
             $table->timestamps();
-            $table->unique(['article_id','category_id']);
         });
     }
 

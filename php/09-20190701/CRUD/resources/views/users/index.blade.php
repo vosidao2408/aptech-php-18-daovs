@@ -35,6 +35,7 @@
     @endforeach 
     </tbody>
     </table>
+    <div class="d-flex justify-content-center">{{$users->links()}}</div>
     @section('content')
     <form action="{{asset('/users/create')}}" method="GET">
           <button type="submit" class="btn btn-success">Add User</button>

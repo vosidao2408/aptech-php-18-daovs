@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(10);
         return view('users.index',['users'=>$users]);
     }
 
@@ -77,10 +77,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user = new User;
-        $name = $user->name =  $request->name;
-        $email = $user->email = $request->email;
-        User::where('id',$user)
+        $name = $request->name;
+        $email =  $request->email;  
+        User::where('id',$user->id)
         ->update([
             'name' => $name,
             'email' => $email
@@ -96,7 +95,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user = User::where('id',$user)->delete();
+        $user->delete();
         return redirect()->route('users.index');
     }
 }
