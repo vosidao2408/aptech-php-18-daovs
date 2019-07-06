@@ -13,6 +13,7 @@
 
 <body>
   <form action="{{asset('/articles')}}" method="post">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
   <textarea name="content" id="editor">This is some sample content.</textarea>
 </body>
 <script>
@@ -22,5 +23,19 @@
 
     //vao user tao 2 thu muc .ckfinder va temp trong userfiles
 </script>
+<br>
+<input type="text" name="title" placeholder="Title"> <br> <br>
+<input type="text" name="slug" placeholder="Slug"> <br> <br>
+<input type="text" name="description" placeholder="Description"> <br> <br>
+    <input type="text" name="image_path" placeholder="Image_Path">
+  <br><br>
+  <label for="">Category</label>
+  <select name="" id="">
+  @foreach($categories as $category)
+  <option value="">{{$category->name}}</option>
+  @endforeach
+  </select>
+  <br><br>
+<button type="submit">Submit</button>
 </form>
 </html>

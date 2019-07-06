@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+        return view('articles.index',['articles'=>$articles]);
     }
 
     /**
@@ -24,7 +26,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $categories = Category::all();
+        return view('articles.create',['categories'=>$categories]);
     }
 
     /**
@@ -35,7 +38,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $article = new Article;
+        $title =$article->title =  $request->title;
+        $slug = $article->slug =  $request->slug;
+        $description = $article->description =$request->description;
+        $content = $article->content = $request->content;
+        $image_path = $article->image_path = $request->image_path;
+        $article->save();
     }
 
     /**
@@ -46,8 +56,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
-    }
+        $newarticle = Article::find($article);
+        return view('articles.show',['article'=>$newarticle[0]]);    }
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +67,9 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        $newarticle = Article::find($article);
+        $categories = Category::all();
+        return view('articles.edit',['article'=>$newarticle[0],'categories'=>$categories]); 
     }
 
     /**
@@ -69,7 +81,19 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $title=  $request->title;
+        $slug =  $request->slug;
+        $description =$request->description;
+        $content =  $request->content;
+        $image_path  = $request->image_path;
+        Article::find($article)->update([
+            'title'=>$title,
+            'slug'=>$slug,
+            'description'=>$description,
+            'content'=>$content,
+            'image_path'=>$image_path
+        ]);
+        return ridirect()->route('articles.show');
     }
 
     /**
@@ -80,6 +104,7 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect()->route('articles.index');
     }
 }
