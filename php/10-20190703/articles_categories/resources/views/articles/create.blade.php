@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
-  <script src="{{asset('ckfinder/ckfinder.js')}}"></script>
-</head>
-
-
-<body>
+@extends('articles.app')
+@section('sidebar')
   <form action="{{asset('/articles')}}" method="post">
   <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
   <textarea name="content" id="editor">This is some sample content.</textarea>
-</body>
 <script>
   CKEDITOR.replace('editor', {
     filebrowserBrowseUrl: "{{asset('/ckfinder/ckfinder.html')}}",
@@ -23,19 +10,37 @@
 
     //vao user tao 2 thu muc .ckfinder va temp trong userfiles
 </script>
-<br>
-<input type="text" name="title" placeholder="Title"> <br> <br>
-<input type="text" name="slug" placeholder="Slug"> <br> <br>
-<input type="text" name="description" placeholder="Description"> <br> <br>
-    <input type="text" name="image_path" placeholder="Image_Path">
-  <br><br>
-  <label for="">Category</label>
-  <select name="" id="">
-  @foreach($categories as $category)
-  <option value="">{{$category->name}}</option>
-  @endforeach
-  </select>
-  <br><br>
-<button type="submit">Submit</button>
+<div class="container w-50 my-3">
+  <div class="row">
+    <div class="col-12">
+<div class="form-group">
+  <label for="">Title</label>
+  <input type="text" class="form-control" name="title" id="" placeholder="Title">
+</div>
+<div class="form-group">
+  <label for="">Slug</label>
+  <input type="text" class="form-control" name="slug" id="" placeholder="Slug">
+</div>
+<div class="form-group">
+  <label for="">Description</label>
+  <input type="text" class="form-control" name="description" id="" placeholder="Description">
+</div>
+<div class="form-group">
+  <label for="">Image Path</label>
+  <input type="text" class="form-control" name="image_path" id="" placeholder="Image Path">
+</div>
+<div class="form-group">
+<label for="">Categories</label>
+<select class="form-control" name="category_name">
+@foreach ($categories as $category)
+  <option>{{$category->name}}</option>
+@endforeach
+</select>
+</div>
+<button type="submit" class="btn btn-primary btn-block">Add</button>
+    </div>
+  </div>
+</div>
 </form>
-</html>
+
+@endsection

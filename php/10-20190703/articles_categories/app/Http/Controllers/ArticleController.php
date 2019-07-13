@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -15,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::paginate(5);
         return view('articles.index',['articles'=>$articles]);
     }
 
@@ -41,11 +42,19 @@ class ArticleController extends Controller
         //dd($request->all());
         $article = new Article;
         $title =$article->title =  $request->title;
-        $slug = $article->slug =  $request->slug;
+        $slug = $article->slug =  str_replace(' ','-',$request->slug);
         $description = $article->description =$request->description;
         $content = $article->content = $request->content;
         $image_path = $article->image_path = $request->image_path;
         $article->save();
+        $LastInsertId = $article->id;
+        $c_name = $request->category_name;
+        $category_id = DB::table('categories')->where('name',$c_name)->value('id');
+        DB::table('article_category')->insert([
+            'article_id'=>$LastInsertId,
+            'category_id'=>$category_id
+        ]);
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -54,10 +63,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($slug)
     {
-        $newarticle = Article::find($article);
-        return view('articles.show',['article'=>$newarticle[0]]);    }
+        $newarticle = Article::where('slug',$slug)->get();
+        return view('articles.show',['article'=>$newarticle[0]]);   
+     }
 
     /**
      * Show the form for editing the specified resource.
@@ -65,9 +75,9 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($slug)
     {
-        $newarticle = Article::find($article);
+        $newarticle = Article::where('slug',$slug)->get();
         $categories = Category::all();
         return view('articles.edit',['article'=>$newarticle[0],'categories'=>$categories]); 
     }
@@ -79,21 +89,21 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $slug)
     {
         $title=  $request->title;
-        $slug =  $request->slug;
+        $slug =  str_replace(' ','-',$request->slug);
         $description =$request->description;
         $content =  $request->content;
         $image_path  = $request->image_path;
-        Article::find($article)->update([
+        Article::where('slug',$slug)->update([
             'title'=>$title,
             'slug'=>$slug,
             'description'=>$description,
             'content'=>$content,
             'image_path'=>$image_path
         ]);
-        return ridirect()->route('articles.show');
+        return redirect()->route('articles.show',$slug);
     }
 
     /**
@@ -105,6 +115,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
+        $deleteArticle = DB::table('article_category')->where('article_id',$article->id)->delete();
         return redirect()->route('articles.index');
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('categories.index',['categories'=>$categories]);
     }
 
     /**
@@ -24,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -35,7 +38,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newcategory = new Category;
+        $name = $newcategory->name =  $request->name;
+        Category::create([
+            'name'=> $name
+        ]);
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -46,7 +54,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $newcategory = Category::find($category);
+        return view('categories.show',['category'=>$newcategory[0]]);
     }
 
     /**
@@ -57,7 +66,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $newcategory = Category::find($category);
+        return view('categories.edit',['category'=>$newcategory[0]]);
     }
 
     /**
@@ -69,7 +79,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $name = $request->name;
+        Category::where('id',$category->id)->update([
+            'name'=>$name
+        ]);
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -80,6 +94,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        $categoryDelete = DB::table('article_category')->where('category_id',$category->id)->delete();
+        return redirect()->route('categories.index');
     }
 }
