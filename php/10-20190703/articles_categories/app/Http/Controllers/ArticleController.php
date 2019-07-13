@@ -78,8 +78,8 @@ class ArticleController extends Controller
     public function edit($slug)
     {
         $newarticle = Article::where('slug',$slug)->get();
-        $categories = Category::all();
-        return view('articles.edit',['article'=>$newarticle[0],'categories'=>$categories]); 
+
+        return view('articles.edit',['article'=>$newarticle[0]]);
     }
 
     /**
@@ -103,6 +103,7 @@ class ArticleController extends Controller
             'content'=>$content,
             'image_path'=>$image_path
         ]);
+        
         return redirect()->route('articles.show',$slug);
     }
 

@@ -32,14 +32,7 @@
   <input type="text" class="form-control" name="image_path" id="" placeholder="Image Path" value="{{$article->image_path}}">
 </div>
 
-<div class="form-group">
-<label for="">Categories</label>
-<select class="form-control">
-@foreach ($categories as $category)
-  <option>{{$category->name}}</option>
-@endforeach
-</select>
-</div>
+
 <button type="submit" class="btn btn-primary btn-block">Edit</button>
 
     </div>
