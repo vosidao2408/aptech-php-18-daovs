@@ -39,7 +39,6 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
         $article = new Article;
         $title =$article->title =  $request->title;
         $slug = $article->slug =  str_replace(' ','-',$request->slug);
@@ -47,13 +46,7 @@ class ArticleController extends Controller
         $content = $article->content = $request->content;
         $image_path = $article->image_path = $request->image_path;
         $article->save();
-        $LastInsertId = $article->id;
-        $c_name = $request->category_name;
-        $category_id = DB::table('categories')->where('name',$c_name)->value('id');
-        DB::table('article_category')->insert([
-            'article_id'=>$LastInsertId,
-            'category_id'=>$category_id
-        ]);
+         $article->categories()->sync($request->categories, false);
         return redirect()->route('articles.index');
     }
 
@@ -78,8 +71,12 @@ class ArticleController extends Controller
     public function edit($slug)
     {
         $newarticle = Article::where('slug',$slug)->get();
-
-        return view('articles.edit',['article'=>$newarticle[0]]);
+        $categories = Category::all();
+        $cats = array();
+        foreach ($newarticle[0]->categories as $category)
+         $cats[$category->id] = $category->name;
+        //  dd($cats);
+        return view('articles.edit',['article'=>$newarticle[0],'categories'=>$categories,'cats'=>$cats]);
     }
 
     /**
@@ -103,7 +100,13 @@ class ArticleController extends Controller
             'content'=>$content,
             'image_path'=>$image_path
         ]);
-        
+        $article = Article::where('slug',$slug)->get();
+        if(isset($request->categories)){
+            $article[0]->categories()->sync($request->categories);
+        }
+        else{
+            $article[0]->categories()->sync(array());
+        }
         return redirect()->route('articles.show',$slug);
     }
 
@@ -115,8 +118,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $article->categories()->detach();
         $article->delete();
-        $deleteArticle = DB::table('article_category')->where('article_id',$article->id)->delete();
         return redirect()->route('articles.index');
     }
 }

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      
+  <form action="{{asset('articles')}}" method="get">
+              <button class="btn btn-primary rounded-0 font-weight-bold my-3">Article</button>
+            </form>
   <table class="table table-dark table-striped table-hover table-bordered text-center">
       <thead>
       <tr>
