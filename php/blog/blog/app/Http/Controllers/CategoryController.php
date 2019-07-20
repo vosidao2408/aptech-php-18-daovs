@@ -44,11 +44,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {   $categories = Category::all();
-        $listcategories = Category::find($category->id)->get();
-        
-        return view('categories.show',['listcategories'=>$listcategories,'categories'=>$categories]);
+        $articles = Category::where('id',$id)->first()->articles()->paginate('5');
+        return view('categories.show',['categories'=>$categories,'articles'=>$articles]);
     }
 
     /**
